@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@400;600&family=Rubik+Spray+Paint&display=swap');
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #E6E6E6;
+}
+.header{
+    height: 100px;
+    background: rgb(167, 167, 216);
+    /* margin-bottom: 50px; */
+}
+/* ul li {
+    display: list-item;
+  }
+  
+  ul li:before {
+    content: "• ";
+  } */
