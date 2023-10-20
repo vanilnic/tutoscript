@@ -3,9 +3,1747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Глава 2. Основы JavaScript</title>
 </head>
 <body>
-    
+    <main>
+        <div class="container-fluid">
+            <div class="gl2info row">
+                <div class="otstup col-1"></div>
+                <div class="info2 col-10">
+                    <p class="fs-3 fw-bold text-center">Глава 2. Основы JavaScript</p>
+                    <p class="fs-4 fw-bold">Методы ввода и выводы данных.</p>
+                        <p class="fs-5 fw-bold">Alert</p>
+                            <p class="lh-lg">Синтаксис:</p>
+                                
+                                <div class="case lh-lg">
+                                    <div class="text">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert(сообщение)
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg"> <code><span>alert</span></code> выводит на экран окно с сообщением и приостанавливает выполнение скрипта, пока пользователь не нажмёт «ОК».</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert("Привет");
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Окно сообщения, которое выводится, является модальным окном. Слово «модальное» означает, что посетитель не может взаимодействовать со страницей, нажимать другие кнопки и т.п., пока не разберётся с окном. В данном случае – пока не нажмёт на «OK».</p>
+                        <p class="fs-5 fw-bold">Prompt</p>
+                            <p class="lh-lg">Функция <code><span>prompt</span></code> отобразит модальное окно с текстом, полем для ввода текста и кнопками OK/Отмена. <p>Например:</p></p>
+                                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let age = prompt('Сколько тебе лет?');
+                                            <br/>
+                                            alert('Тебе ' + age);
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Значение, введенное пользователем автоматически будет передано соответствующей переменной. На самом деле, у данной функции есть еще ряд особенностей, например возможность задать значение по-умолчанию, но в рамках данного курса мы это использовать не будем.</p>
+                        <p class="fs-5 fw-bold">Confirm</p>
+                            <p class="lh-lg">Функция <code><span>confirm</span></code> отображает модальное окно с текстом вопроса и двумя кнопками: OK и Отмена. <p>Например:</p></p>
+                                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let isConfirmed = confirm("Видишь ли ты перед собой модальное окно confirm?");
+                                            <br/>
+                                            alert( isConfirmed );
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Если была нажата кнопка OK, то результат будет считаться истинным. Во всех других случаях – ложным. Смысл этих значений мы затронем далее в рамках курса, когда будем проходить логические операторы.</p>
+                        <p class="fs-5 fw-bold">Console</p>
+                            <p class="lh-lg">Уже после нескольких вызовов примера вывода через <code><span>alert</span></code> возможно вам этот способ показался раздражающим, в том числе своей особенностью блокировать отображение страницы до тех пор пока окно не будет закрыто. Как правило, программисты на JavaScript предпочитают использовать более удобный формат вывода, а именно т.н. консоль разработчика. Все сообщение и данные, которые мы хотим передать в консоль, относятся к особому объекту <code><span>console</span></code>, при обращении к которому через символ точки . принято указывать метод (пока это понятие нам не знакомо, считаем его пока просто некоторым особым действием объекта), при помощи которого хотим вызвать сообщение.</p>
+                                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log("Привет, я сообщение в консоли типа log, самое обычное");
+                                            <br/>
+                                            console.info("Привет, я сообщение в консоли типа info, подсвечиваю что-то интересное");
+                                            <br/>
+                                            console.warn("Привет, я сообщение в консоли типа warn, обращаю на что-то внимание");
+                                            <br/>
+                                            console.error("Привет, я сообщение в консоли типа error, сообщаю об ошибке");
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Все эти методы кроме вывода в консоль являются модальными: останавливают выполнение скриптов и не позволяют пользователю взаимодействовать с остальной частью страницы до тех пор, пока окно не будет закрыто.</p>
+                            <p class="lh-lg">На все указанные «оконные» методы распространяются два ограничения:</p>
+                                
+                                <ul class="lh-base">
+                                    <li>Расположение окон определяется браузером. Обычно окна находятся в центре.</li>
+                                    <li>Визуальное отображение окон зависит от браузера, и мы не можем изменить их вид.</li>
+                                </ul>
+                    
+                    <p class="fs-4 fw-bold">Переменные и константы.</p>
+                            <p class="lh-lg">Для хранения данных в программе используются переменные и константы. Переменные предназначены для хранения каких-нибудь временных данных или таких данных, которые в процессе работы могут менять свое значение. Константы, наоборот, предназначены для хранения неизменных данных, значение которых должно оставаться постоянным в течение всей программы.</p>
+                        <p class="fs-5 fw-bold">Переменная</p>
+                            <p class="lh-lg"><u>Переменная</u> – это «именованное хранилище» для данных. Мы можем использовать переменные для хранения товаров, посетителей и других данных.</p>
+                            <p class="lh-lg">Для создания переменной в JavaScript используйте ключевое слово <code><span>let</span></code>.</p>
+                            <p class="lh-lg">Каждая переменная имеет имя. Имя представляет собой произвольный набор алфавитно-цифровых символов, знака подчеркивания (_) или знака доллара ($), причем названия не должны начинаться с цифровых символов. То есть мы можем использовать в названии буквы, цифры, подчеркивание и символ $. Однако все остальные символы запрещены.</p>
+                            <p class="lh-lg"> Также нельзя давать переменным такие имена, которые совпадают с зарезервированными ключевыми словами. В JavaScript не так много ключевых слов, поэтому данное правило не сложно соблюдать.</p>
+                            <p class="lh-lg"><span1><i>Список зарезервированных слов в JavaScript: await, break, case, catch, class, const, continue, debugger, default, delete, do, else, enum, export, extends, false, finally, for, function, if, import, in, instanceof, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, yield.</i></span1></p>
+                            <p class="lh-lg">Приведённая ниже инструкция создаёт (другими словами, объявляет) переменную с именем «message»:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let message;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">При названии переменных надо учитывать, что JavaScript является регистрозависимым языком, то есть в следующем коде объявлены две разные переменные:</p>
+                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let username;
+                                            <br/>
+                                            let userName;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Через запятую можно определить сразу несколько переменных:</p>
+                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            var username, age, height;
+                                            <br/>
+                                            let a, b, c;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Присвоение переменной значения</p>
+                            <p class="lh-lg">После определения переменной ей можно присвоить какое-либо значение. Для этого применяется оператор присваивания (=):</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            var username;
+                                            <br/>
+                                            username = "Tom";
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">То есть в данном случае переменная username будет хранить строку "Tom". После присвоения переменной значения мы можем что-то сделать с этим значением, например, выведем его на консоль:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let username;           // Определение переменной username                                            
+                                            <br/>
+                                            username = "Tom";       // Присвоение переменной значения
+                                            <br/>
+                                            console.log(username);  // Вывод значения переменной username на консоль
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Процесс присвоения переменной начального значения называется инициализацией. Можно сразу присвоить переменной значение при ее определении:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let username = "Tom";
+                                            <br/>
+                                            let userage = 37;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Можно сразу инициализировать несколько переменных:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let name1 = "Tom", name2 = "Bob", name3 = "Sam";
+                                            <br/>
+                                            console.log(name1);  // Tom
+                                            <br/>
+                                            console.log(name2);  // Bob
+                                            <br/>
+                                            console.log(name3);  // Sam
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">JavaScript позволяет некоторые вольности при определении переменной. Так, мы можем НЕ использовать ключевое слово let</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            username = "Tom"; // ошибки нет
+                                            <br/>
+                                            console.log(username);  // Tom
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+                                
+                        <p class="fs-5 fw-bold">Изменение переменных</p>
+                            <p class="lh-lg">Отличительной чертой переменных является то, что мы можем изменить их значение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let username = "Tom";
+                                            <br/>
+                                            console.log("username до изменения:", username); // Tom
+                                            <br/>
+                                            username = "Bob";
+                                            <br/>
+                                            console.log("username после изменения:", username); // Bob
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Слабая/динамическая типизация</p>
+                            <p class="lh-lg">JavaScript является языком со слабой и динамической типизацией. Это значит, что переменные могут динамически менять тип. </p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let id;  // тип undefined
+                                            <br/>
+                                            console.log(id);
+                                            <br/>
+                                            <br/>
+                                            id = 45;  // тип number
+                                            <br/>
+                                            console.log(id);
+                                            <br/>
+                                            <br/>
+                                            id = "45"; // тип string
+                                            <br/>
+                                            console.log(id);
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Несмотря на то, что во втором и третьем случае консоль выведет нам число 45, но во втором случае переменная id будет представлять число, а в третьем случае - строку.</p>
+                        <p class="fs-5 fw-bold">Оператор typeof</p>
+                            <p class="lh-lg">С помощью оператора typeof можно получить тип переменной, что может быть полезно, когда в зависимости от типа переменной необходимо выполнить те или иные действия:</p>
+                        
+                            <div class="code">
+                                <div class="text lh-lg">
+                                <code class="lang-js">
+                                    <span>
+                                        let id;
+                                        <br/>
+                                        console.log(typeof id);       // undefined
+                                        <br/>
+                                        <br/>
+                                        id = 45;
+                                        <br/>
+                                        console.log(typeof id);   // number
+                                        <br/>
+                                        <br/>
+                                        id = 45n;
+                                        <br/>
+                                        console.log(typeof id);     // bigint
+                                        <br/>
+                                        <br/>
+                                        id = "45";
+                                        <br/>
+                                        console.log(typeof id);     // string
+                                    </span>
+                                </code>
+                                </div>  
+                            </div>
+
+                            <p class="lh-lg">Стоит отметить, что для значения <code><span>null</span></code> оператор typeof возвращает значение "object", несмотря на то, что согласно спецификации JavaScript значение <code><span>null</span></code> представляет отдельный тип.</p>
+                        
+                        <p class="fs-5 fw-bold">Константы</p>
+                            <p class="lh-lg">С помощью ключевого слова <code><span>const</span></code> можно определить константу, которая, как и переменная, хранит значение, однако это значение не может быть изменено.</p>
+                            
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const username = "Tom";
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Если мы попробуем изменить ее значение, то мы столкнемся с ошибкой:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const username = "Tom";
+                                            <br/>
+                                            username = "Bob";   // ошибка, username - константа, поэтому мы не можем изменить ее значение
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Также стоит отметить, что поскольку мы не можем изменить значение константы, то она должна быть инициализирована, то есть при ее определении мы должны предоставить ей начальное значение. Если мы этого не сделаем, то опять же мы столкнемся с ошибкой:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const username; // ошибка, username не инициализирована
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Когда использовать переменные, а когда константы? Если вы уверены, что значение в процессе программы не будет изменяться, тогда это значение определяется в виде константы. Если неизвестно, будет ли значение меняться или нет, то рекомендуется определить значение как константу. А в случае если в далее потребуется его изменить, то просто можно изменить определение значения с <code><span>const</span></code> на <code><span>let</span></code>.</p>
+                    <p class="fs-4 fw-bold">Типы данных.</p> 
+                            <p class="lh-lg">Все используемые данные в javascript имеют определенный тип. В JavaScript имеется восемь типов данных:</p>
+
+                                <ul class="lh-base">
+                                    <li>String: представляет строку.</li>
+                                    <li>Number: представляет числовое значение.</li>
+                                    <li>BigInt: предназначен для представления очень больших целых чисел.</li>
+                                    <li>Boolean: представляет логическое значение true или false.</li>
+                                    <li>Undefined: представляет одно специальное значение - undefined и указывает, что значение не установлено.</li>
+                                    <li>Null: представляет одно специальное значение - null и указывает на отсутствие значения.</li>
+                                    <li>Symbol: представляет уникальное значение, которое часто применяется для обращения к свойствам сложных объектов.</li>
+                                    <li>Object: представляет комплексный объект.</li>
+                                </ul>
+
+                            <p class="lh-lg">Первые семь типов представляют примитивные типы данных. Последний тип - Object представляет сложный, комплексный тип данных, который состоит из значений примитивных типов или других объектов. Рассмотрим основные примитивные типы данных.</p>
+                        <p class="fs-5 fw-bold">String</p>
+                            <p class="lh-lg">Тип String представляет строки. Для определения строк применяются кавычки, причем, можно использовать как двойные, так одинарные, так и косые кавычки. Единственно ограничение: тип закрывающей кавычки должен быть тот же, что и тип открывающей, то есть либо обе двойные, либо обе одинарные.</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const user = "Tom";
+                                            <br/>
+                                            const company = 'Microsoft';
+                                            <br/>
+                                            const language = `JavaScript`;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Number</p>
+                            <p class="lh-lg">Тип Number представляет числа в JavaScript, которые могут быть целыми или дробными:</p>
+
+                                <ul class="lh-base">
+                                    <li>Целые числа, например, 35. Мы можем использовать как положительные, так и отрицательные числа. Диапазон используемых чисел: от -253 до 253.</li>
+                                    <li>Дробные числа (числа с плавающей точкой). В качестве разделителя дробной и целой части применяется точка, например, 3.5575. Опять же можно использовать как положительные, так и отрицательные числа. Для чисел с плавающей точкой используется тот же диапазон: от -253 до 253.</li>
+                                </ul>
+                            
+                        <p class="fs-5 fw-bold">BigInt</p>
+                            <p class="lh-lg">Тип BigInt добавлен в последних стандартах JavaScript для представления очень больших целых чисел, которые выходят за пределы диапазона типа number. Это не значит, что мы не можем совсем работать с большими числами с помощью типа number, но работа с ними в случае с типом number будет сопряжена с проблемами. Для определения числа как значения типа BigInt в конце числа добавляется суффикс n:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let dimension = 19007n;
+                                            <br/>
+                                            const value = 2545n;   
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Boolean</p>
+                            <p class="lh-lg">Тип Boolean представляет булевые или логические значения true (верно) и false (ложно):</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const isAlive = true;
+                                            <br/>
+                                            const isDead = false;   
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">null и undefined</p>
+                            <p class="lh-lg"><code><span>undefined</span></code> указывает, что значение не определено или не установлено. Например, когда мы только определяем переменную без присвоения ей начального значения, она представляет тип <code><span>undefined</span></code>:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let email;
+                                            <br/>
+                                            console.log(email); // выведет undefined 
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Присвоение значение <code><span>null</span></code> означает, что у переменной отсутствует значение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let email;
+                                            <br/>
+                                            console.log(email); // undefined
+                                            <br/>
+                                            email = null;
+                                            <br/>
+                                            console.log(email);     // null
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Стоит отметить, что хотя в принципе можно переменной присвоить значение <code><span>undefined</span></code>, как в следующем случае:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let email = "tome@mimimail.com";
+                                            <br/>
+                                            email = undefined;      // установим тип undefined
+                                            <br/>
+                                            console.log(email); // undefined
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Но основной смысл <code><span>undefined</span></code> состоит в том, что переменная неинициализирована, что обычно происходит до первого присвоения ей какого-либо значения. Поэтому обычно не предполагается, что переменной явным образом будет присваиваться значение <code><span>undefined</span></code>. В тоже время этот тип может быть полезен - мы можем использовать его на проверку инициализации переменной. Но если же нам надо указать, что у переменной нет никакого значения, то ей присваивается <code><span>null</span></code>, а не <code><span>undefined</span></code>.</p>
+                    <p class="fs-4 fw-bold">Интерполяция.</p>
+                            <p class="lh-lg">Использование косых кавычек позволяет нам применять такой прием как интерполяция - встраивать данные в строку.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const user = "Tom";
+                                            <br/>
+                                            const text = `Name: ${user}`;
+                                            <br/>
+                                            console.log(text);  // Name: Tom
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Для встраивания значений выражений (например, значений других переменных и констант) в строку перед выражением ставится знак доллара ($), после которого в фигурных скобках указывается выражение. Так, в примере выше <code><span>${user}</span></code> означает, что в этом месте строки надо встроить значение переменной <code><span>user</span></code>.</p>
+                            <p class="lh-lg">Кроме интерполяции косые кавычки позволяют определять многострочный текст:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            `Мы все учились понемногу
+                                            <br/>
+                                            Чему-нибудь и как-нибудь,
+                                            <br/>
+                                            Так воспитаньем, слава богу,
+                                            <br/>
+                                            У нас немудрено блеснуть.`;
+                                            <br/>
+                                            <br/>
+                                            console.log(text);
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Консольный вывод браузера:</p>
+                                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            Мы все учились понемногу
+                                            <br/>
+                                            Чему-нибудь и как-нибудь,
+                                            <br/>
+                                            Так воспитаньем, слава богу,
+                                            <br/>
+                                            У нас немудрено блеснуть.
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Object</p>
+                            <p class="lh-lg">Тип object представляет сложный объект. Простейшее определение объекта представляют фигурные скобки:</p>
+                            <p class="lh-lg">Синтаксис:</p>
+
+                                <div class="case lh-lg">
+                                    <div class="text">
+                                    <code class="lang-js">
+                                        <span>
+                                            const user = {объект : свойство};
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Объект может иметь различные свойства и методы:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const user = {name: "Tom", age:24};
+                                            <br/>
+                                            console.log(user.name);
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">В данном случае объект называется user, и он имеет два свойства: name и age, которые в качестве значения принимают данные других типов. Это краткое описание объектов, более подробно объекты мы рассморим в последующих статьях.</p>
+                    <p class="fs-4 fw-bold">Арифметические операции</p>
+                            <p class="lh-lg">Для выполнения различных действий над значениями (например, сложение, вычитание и т.д.) язык JavaScript предоставляет операции. Операции принимают один, два или три операнда и применяют к ним некоторые действия. В качестве операндов в зависимости от типа операции можно применять литералы (числа, строки), переменные и константы или результаты других операций. Ранее мы уже использовать одну, наиболее распространенную операцию - операцию присвоения в виде символа =, которая присваивает переменной или константе некоторое значение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const num = 4;    // операция присвоения - присваиваем константе num число 4
+                                            <br/>
+                                            console.log(num); // 4
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Рассмотрим, какие арифметические операции мы можем использовать в JavaScript.</p>
+                            <p class="lh-lg">JavaScript поддерживает все базовые математические операции:</p>
+                            <p class="fs-6 fw-bold">Сложение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 50 + 10;
+                                            <br/>
+                                            console.log(x); // 60
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">Вычитание:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 50 - 10;
+                                            <br/>
+                                            console.log(x); // 40
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">Умножение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 50 * 10;
+                                            <br/>
+                                            console.log(x); // 500
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">Деление:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 50 / 10;
+                                            <br/>
+                                            console.log(x); // 5
+                                            <br/>
+                                            <br/>
+                                            const z = 50 / 4;
+                                            <br/>
+                                            console.log(z); // 12.5
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">Деление по модулю (оператор %):</p>
+                            <p class="lh-lg">Возвращает остаток от деления:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 15 % 4;
+                                            <br/>
+                                            console.log(x); // 3
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Результатом будет 3, так как наибольшее целое число, которое меньше или равно 15 и при этом делится на 4 без остатка равно 12, а 15 - 12 = 3.</p>
+                            <p class="fs-6 fw-bold">Возведение в степень(оператор **):</p>
+                            <p class="lh-lg">Оператор ** возводит число в определенную степень.</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            число ** степень;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const n = 2 ** 3;
+                                            <br/>
+                                            console.log(n);  // 8
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Или</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            const x = 3;
+                                            <br/>
+                                            const y = 2;
+                                            <br/>
+                                            const z = x ** y;
+                                            <br/>
+                                            console.log(z);  // 9
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">Инкремент:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 5;
+                                            <br/>
+                                            x++; // x = 6
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Оператор инкремента <code><span>++</span></code> увеличивает значение переменной на единицу. Существует префиксный инкремент, который сначала увеличивает переменную на единицу, а затем возвращает ее значение. И есть постфиксный инкремент, который сначала возвращает значение переменной, которое было до увеличения его на единицу:</p>
+                            <p class="lh-lg">Префиксный инкремент:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 5;
+                                            <br/>
+                                            let z = ++x;
+                                            <br/>
+                                            console.log(x); // 6
+                                            <br/>
+                                            console.log(z); // 6
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+                                
+                            <p class="lh-lg">Постфиксный инкремент:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let a = 5;
+                                            <br/>
+                                            let b = a++;
+                                            <br/>
+                                            console.log(a); // 6
+                                            <br/>
+                                            console.log(b); // 5
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+                            
+                            <p class="lh-lg"><span1><i>Инкремент аналогичен операции: a = a + 1;</span1></i><span1></span1></p>
+                            <p class="fs-6 fw-bold">Декремент:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 5;
+                                            <br/>
+                                            x--; // x = 4
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Оператор декремента <code><span>--</span></code> уменьшает значение переменной на единицу. Также есть префиксный и постфиксный декремент:</p>
+                            <p class="lh-lg">Префиксный декремент:</p>
+
+                            <div class="code">
+                                <div class="text lh-lg">
+                                <code class="lang-js">
+                                    <span>
+                                        let x = 5;
+                                        <br/>
+                                        let z = --x;
+                                        <br/>
+                                        console.log(x); // 4
+                                        <br/>
+                                        console.log(z); // 4
+                                    </span>
+                                </code>
+                                </div>  
+                            </div>
+                            
+                            <p class="lh-lg">Постфиксный декремент:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let a = 5;
+                                            <br/>
+                                            let b = a--;
+                                            <br/>
+                                            console.log(a); // 4
+                                            <br/>
+                                            console.log(b); // 5
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg"><span1><i>Декремент аналогичен операции: a = a - 1;</span1></i><span1></span1></p>
+                            <p class="lh-lg">Как и принято в математике, все операции выполняются слева направо и различаются по приоритетам: сначала операции инкремента и декремента, затем выполняются умножение и деление, а потом сложение и вычитание. Чтобы изменить стандартный ход выполнения операций, часть выражений можно поместить в скобки:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 10;
+                                            <br/>
+                                            let y = 5 + (6 - 2) * --x;
+                                            <br/>
+                                            console.log(y); // 41 
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Арифметические операции с присваиванием</p>
+                            <p class="lh-lg">В JavaScript также есть ряд операций, которые сочетают арифметические операции с присвоением:</p>
+
+                                <ul class="lh-base">
+                                    <li>+=</li>
+                                </ul>
+
+                            <p class="lh-lg">Сложение с последующим присвоением результата.</p>
+                            <p class="lh-lg"> Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let a = 23;
+                                            <br/>
+                                            a += 5; // аналогично a = a + 5
+                                            <br/>
+                                            console.log(a); // 28 
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                                <ul class="lh-base">
+                                    <li>-=</li>
+                                </ul>
+
+                            <p class="lh-lg">Вычитание с последующим присвоением результата.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let a = 28;
+                                            <br/>
+                                            a -= 10; // аналогично a = a - 10
+                                            <br/>
+                                            console.log(a); // 18
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                                <ul class="lh-base">
+                                    <li>*=</li>
+                                </ul>
+
+                            <p class="lh-lg">Умножение с последующим присвоением результата:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 20;
+                                            <br/>
+                                            x *= 2; // аналогично x = x * 2
+                                            <br/>
+                                            console.log(x); // 40
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                                <ul class="lh-base">
+                                    <li>**=</li>
+                                </ul>
+
+                            <p class="lh-lg">Возведение в степень с последующим присвоением результата:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 5;
+                                            <br/>
+                                            x **= 2;
+                                            <br/>
+                                            console.log(x);  // 25
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                                <ul class="lh-base">
+                                    <li>/=</li>
+                                </ul>
+
+                            <p class="lh-lg">Деление с последующим присвоением результата:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 40;
+                                            <br/>
+                                            x /= 4; // аналогично x = x / 4
+                                            <br/>
+                                            console.log(x); // 10
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                                <ul class="lh-base">
+                                    <li>%=</li>
+                                </ul>
+
+                            <p class="lh-lg">Получение остатка от деления с последующим присвоением результата:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 10;
+                                            <br/>
+                                            x %= 3; // аналогично x = x % 3
+                                            <br/>
+                                            console.log(x); // 1, так как 10 - 3*3 = 1
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                    <p class="fs-4 fw-bold">Оператор, Операнд</p>
+                            <p class="lh-lg"><u>Операция</u> – конкретная программная инструкция, состоящая из оператора и хотя бы одного операнда.</p>
+                            <p class="lh-lg">Как видно из определения, чтобы его понять, нужно рассмотреть также понятия оператор и операнд.</p>
+                            <p class="lh-lg"><u>Оператор</u> – наименьшая автономная часть языка программирования, представляющая собой команду.</p>
+                            <p class="lh-lg">Многие операторы знакомы нам ещё со школы: сложение +, умножение *, вычитание -, деление /, и с одним мы уже познакомились когда проходили переменные, это оператор присваивания =.</p>
+                            <p class="lh-lg"><u>Операнд</u>– то, к чему применяется оператор.</p>
+                            <p class="lh-lg">Например, в умножении 5 * 2 есть два операнда: левый операнд равен 5, а правый операнд равен 2, при этом между ними стоит один оператор умножения *.</p>
+                            <p class="lh-lg"><span1><i>Унарным называется оператор, который применяется к одному операнду.</i></span1></p>
+                            <p class="lh-lg">Например, оператор унарный минус - меняет знак числа на противоположный:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 1;
+                                            <br/>
+                                            console.log( x ); // 1
+                                            <br/>
+                                            x = -x;
+                                            <br/>
+                                            console.log( x ); // -1, применили унарный минус
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg"><span1><i>Бинарным называется оператор, который применяется к двум операндам.</i></span1></p>
+                            <p class="lh-lg">Тот же минус существует и в бинарной форме:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let x = 1, y = 3;
+                                            <br/>
+                                            console.log( y - x ); // 2, бинарный минус вычитает значения
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Формально, в последних примерах мы говорим о двух разных операторах, использующих один символ: оператор отрицания(унарный оператор, который обращает знак) и оператор вычитания (бинарный оператор, который вычитает одно число из другого).</p>
+                        <p class="fs-5 fw-bold">Сложение строк, конкатенация</p>
+                            <p class="lh-lg">Обычно при помощи плюса + складывают числа.</p>
+                            <p class="lh-lg">Но если бинарный оператор + применить к строкам, то он их объединяет в одну:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let s = "моя" + "строка";
+                                            <br/>
+                                            console.log(s); // моястрока
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg"><u>Конкатенация</u> – операция, когда бинарный оператор “+” применимо к стокам производит сложение строк.</p>
+                            <p class="lh-lg">Обратите внимание, если хотя бы один операнд является строкой, то второй будет также преобразован в строку.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( '1' + 2 ); // "12"
+                                            <br/>
+                                            console.log( 2 + '1' ); // "21"
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Как видите, не важно, первый или второй операнд является строкой.</p>
+                            <p class="lh-lg">Вот пример посложнее:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log(2 + 2 + '1' ); // будет "41", а не "221"
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Здесь операторы работают один за другим. Первый ”+” складывает два числа и возвращает 4, затем следующий ”+” объединяет результат со строкой, производя действие 4 + '1' = '41'.</p>
+                            <p class="lh-lg">Сложение и преобразование строк — это особенность бинарного плюса. Другие арифметические операторы работают только с числами и всегда преобразуют операнды в числа.</p>
+                            <p class="lh-lg">Например, вычитание и деление:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( 6 - '2' ); // 4, '2' приводится к числу
+                                            <br/>
+                                            console.log( '6' / '2' ); // 3, оба операнда приводятся к числам
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Операторы сравнения</p>
+                            <p class="lh-lg">Многие операторы сравнения известны нам из математики.</p>
+                            <p class="lh-lg">В JavaScript они записываются так:</p>
+
+                                <ul class="lh-base">
+                                    <li>Больше/меньше: a > b, a < b.</li>
+                                    <li>Больше/меньше или равно: a >= b, a <= b.</li>
+                                    <li>Равно: a == b. Обратите внимание, для сравнения используется двойной знак равенства ==. Один знак равенства a = b означал бы присваивание.</li>
+                                    <li>Не равно. В математике обозначается символом ≠ =, но в JavaScript записывается как a != b.</li>
+                                </ul>
+
+                            <p class="lh-lg"><span1><i>Все операторы сравнения возвращают значение логического типа.</i></span1></p>
+
+                                <ul class="lh-base">
+                                    <li>true – означает «да», «верно», «истина».</li>
+                                    <li>false – означает «нет», «неверно», «ложь».</li>
+                                </ul>
+
+                        <p class="fs-5 fw-bold">Сравнение чисел</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( 2 > 1 );  // true (верно)
+                                            <br/>
+                                            console.log( 2 == 1 ); // false (неверно)
+                                            <br/>
+                                            console.log( 2 != 1 ); // true (верно)
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Результат сравнения можно присвоить переменной, как и любое значение:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let result = 5 > 4; // результат сравнения присваивается переменной result
+                                            <br/>
+                                            console.log( result ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Сравнение строк</p>
+                            <p class="lh-lg">Чтобы определить, что одна строка больше другой, JavaScript использует «алфавитный» или «лексикографический» порядок.</p>
+                            <p class="lh-lg">Другими словами, строки сравниваются посимвольно.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( 'Я' > 'А' ); // true
+                                            <br/>
+                                            console.log( 'Коты' > 'Кода' ); // true
+                                            <br/>
+                                            console.log( 'Сонный' > 'Сон' ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Алгоритм сравнения двух строк довольно прост:</p>
+                                
+                                <ol class="lh-base">
+                                    <li>Сначала сравниваются первые символы строк.</li>
+                                    <li>Если первый символ первой строки больше (меньше), чем первый символ второй, то первая строка больше (меньше) второй. Сравнение завершено.</li>
+                                    <li>Если первые символы равны, то таким же образом сравниваются уже вторые символы строк.</li>
+                                    <li>Сравнение продолжается, пока не закончится одна из строк.</li>
+                                    <li>Если обе строки заканчиваются одновременно, то они равны. Иначе, большей считается более длинная строка.</li>
+                                </ol>
+
+                            <p class="lh-lg">В примерах выше сравнение 'Я' > 'А' завершится на первом шаге, тогда как строки 'Коты' и 'Кода' будут сравниваться посимвольно:</p>
+
+                            <ol class="lh-base">
+                                <li>К равна К.</li>
+                                <li>о равна о.</li>
+                                <li>т больше, чем д. На этом сравнение заканчивается.</li>
+                                <li>Результат: Первая строка больше.</li>
+                            </ol>
+                        <p class="fs-5 fw-bold">Сравнение разных типов</p>
+                            <p class="lh-lg">При сравнении значений разных типов JavaScript приводит каждое из них к числу.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( '2' > 1 ); // true, строка '2' становится числом 2
+                                            <br/>
+                                            console.log( '01' == 1 ); // true, строка '01' становится числом 1
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Логическое значение true становится 1, а false – 0.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( true == 1 ); // true
+                                            <br/>
+                                            console.log( false == 0 ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                        <p class="fs-5 fw-bold">Строгое сравнение</p>
+                            <p class="lh-lg">Использование обычного сравнения == может вызывать проблемы.</p>
+                            <p class="lh-lg">Например, оно не отличает 0 от false:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( 0 == false ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Та же проблема с пустой строкой:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( ' ' == false ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Это происходит из-за того, что операнды разных типов преобразуются оператором == к числу. В итоге, и пустая строка, и false становятся нулём. Как же тогда отличать 0 от false?</p>
+                            <p class="lh-lg">Оператор строгого равенства === проверяет равенство без приведения типов. Другими словами, если a и b имеют разные типы, то проверка a === b немедленно возвращает false без попытки их преобразования.</p>
+                            <p class="lh-lg">Давайте проверим:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( 0 === false ); // false, так как сравниваются разные типы                                        
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Ещё есть оператор строгого неравенства !==, аналогичный !=.</p>
+                            <p class="lh-lg">Оператор строгого равенства делает код более очевидным и оставляет меньше места для ошибок.</p>
+                        <p class="fs-5 fw-bold">Сравнение с null и undefined</p>
+                            <p class="lh-lg"><span1><i>Значения null и undefined равны == друг другу и не равны любому другому значению.</i></span1></p>
+                            <p class="fs-6 fw-bold">При строгом равенстве === </p>
+                            <p class="lh-lg">Эти значения различны, так как различны их типы.</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( null === undefined ); // false                                      
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="fs-6 fw-bold">При нестрогом равенстве == [0]</p>
+                            <p class="lh-lg">Эти значения равны друг другу и не равны никаким другим значениям. Это специальное правило языка.</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( null == undefined ); // true                                     
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Поведение null и undefined при сравнении с другими значениями — особое. При использовании математических операторов и других операторов сравнения < > <= >=, значения null/undefined преобразуются к числам: null становится 0, а undefined – NaN.</p>
+                    <p class="fs-4 fw-bold">Логические операторы</p>
+                            <p class="lh-lg">В JavaScript есть четыре логических оператора:</p>
+
+                                <ul class="lh-base">
+                                    <li>|| (ИЛИ)</li>
+                                    <li>&& (И)</li>
+                                    <li>! (НЕ)</li>
+                                    <li>?? (Оператор нулевого слияния)</li>
+                                </ul>
+
+                            <p class="lh-lg">Несмотря на своё название, данные операторы могут применяться к значениям любых типов. Полученные результаты также могут иметь различный тип.</p>
+                        <p class="fs-5 fw-bold">|| (ИЛИ) </p>
+                            <p class="lh-lg">Оператор «ИЛИ» выглядит как двойной символ вертикальной черты:</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            result = a || b;                                    
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Традиционно в программировании ||(ИЛИ) предназначено только для манипулирования булевыми значениями: в случае, если какой-либо из аргументов true, он вернёт true, в противоположной ситуации возвращается false.</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert( true || true );   // true
+                                            <br/>
+                                            alert( false || true );  // true
+                                            <br/>
+                                            alert( true || false );  // true
+                                            <br/>
+                                            alert( false || false ); // false
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">При выполнении ||(ИЛИ) с несколькими значениями:</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            result = value1 || value2 || value3;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Оператор || выполняет следующие действия:</p>
+
+                                <ul class="lh-base">
+                                    <li>Вычисляет операнды слева направо.</li>
+                                    <li>Каждый операнд конвертирует в логическое значение. Если результат true, останавливается и возвращает исходное значение этого операнда.</li>
+                                    <li>Если все операнды являются ложными (false), возвращает последний из них.</li>
+                                </ul>
+
+                            <p class="lh-lg">Значение возвращается в исходном виде, без преобразования.</p>
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert( 1 || 0 ); // 1 (1 - истинное значение)
+                                            <br/>
+                                            alert( true || 'какая-то строка' ); // true
+                                            <br/>
+                                            alert( null || 1 ); // 1 (первое истинное значение)
+                                            <br/>
+                                            alert( null || 0 || 1 ); // 1 (первое истинное значение)
+                                            <br/>
+                                            alert( undefined || null || 0 ); // 0 (поскольку все ложно, возвращается последнее значение)
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+                        
+                            <p class="lh-lg">Это делает возможным более интересное применение оператора по сравнению с «чистым, традиционным, только булевым ИЛИ»:</p>
+
+                                <ol class="lh-base">
+                                    <li><b>Получение первого истинного значения из списка переменных или выражений.</b></li>
+                                    <p class="lh-lg">Например, у нас есть переменные firstName, lastName и nickName, все они необязательные (т.е. они могут быть неопределенными или иметь ложные значения).</p>
+                                    <p class="lh-lg">Давайте воспользуемся оператором ИЛИ ||, чтобы выбрать ту переменную, в которой есть данные, и показать её (или «Аноним», если ни в одной переменной данных нет):</p>
+
+                                        <div class="code">
+                                            <div class="text lh-lg">
+                                            <code class="lang-js">
+                                                <span>
+                                                    let firstName = "";
+                                                    <br/>
+                                                    let lastName = "";
+                                                    <br/>
+                                                    let nickName = "Есть данные";
+                                                    <br/>
+                                                    alert( firstName || lastName || nickName || "Аноним"); // Есть данные
+                                                </span>
+                                            </code>
+                                            </div>  
+                                        </div>
+                                
+                                    <p class="lh-lg">Если бы все переменные были ложными, в качестве результата мы бы наблюдали "Аноним".</p>
+
+                                    <li><b>Сокращённое вычисление.</b></li>
+                                    <p class="lh-lg">Ещё одной отличительной особенностью оператора ИЛИ || является так называемое «сокращённое вычисление».</p>
+                                    <p class="lh-lg">Это означает, что ИЛИ || обрабатывает свои операнды до тех пор, пока не будет достигнуто первое истинностное значение, и затем это значение сразу же возвращается, даже не затрагивая другие операнды.</p>
+                                    <p class="lh-lg">Важность этой особенности становится очевидной, если операнд – это не просто значение, а выражение с сопутствующим эффектом, как, например, присваивание переменной или вызов функции.</p>
+                                    <p class="lh-lg">В приведенном ниже примере срабатывает только второй alert:</p>
+
+                                        <div class="code">
+                                            <div class="text lh-lg">
+                                            <code class="lang-js">
+                                                <span>
+                                                    true || alert("никогда не сработает");
+                                                    <br/>
+                                                    false || alert("сработает");
+                                                </span>
+                                            </code>
+                                            </div>  
+                                        </div>
+
+                                    <p class="lh-lg">В первой строке оператор ИЛИ || останавливает выполнение сразу после того, как сталкивается с истинным значением (true), поэтому сообщение не показывается.</p>
+                                </ol>
+
+                        <p class="fs-5 fw-bold">&& (И)</p>
+                            <p class="lh-lg">Оператор И пишется как два амперсанда &&:</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            result = a && b;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">В традиционном программировании И возвращает true, если оба аргумента истинны, а иначе – false:</p>
+                            
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert( true && true );   // true
+                                            <br/>
+                                            alert( false && true );  // false
+                                            <br/>
+                                            alert( true && false );  // false
+                                            <br/>
+                                            alert( false && false ); // false
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Пример с if:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            let hour = 12;
+                                            <br/>
+                                            let minute = 30;
+                                            <br/>
+                                            <br/>
+                                            if (hour == 12 && minute == 30) {
+                                            <br/>
+                                            alert( 'Время 12:30' ); // сработает
+                                            <br/>
+                                            }
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+                            
+                            <p class="lh-lg">Как и в случае с ИЛИ, любое значение допускается в качестве операнда И:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            if (1 && 0) { // вычисляется как true && false
+                                            <br/>
+                                            alert( "не сработает, так как результат ложный" );
+                                            <br/>
+                                            }
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">При нескольких подряд операторах И:</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            result = value1 && value2 && value3;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Оператор && выполняет следующие действия:</p>
+
+                                <ul class="lh-base">
+                                    <li>Вычисляет операнды слева направо.</li>
+                                    <li>Каждый операнд преобразует в логическое значение. Если результат false, останавливается и возвращает исходное значение этого операнда.</li>
+                                    <li>Если все операнды были истинными, возвращается последний.</li>
+                                </ul>
+
+                            <p class="lh-lg">Другими словами, И возвращает первое ложное значение. Или последнее, если ничего не найдено.</p>
+                            <p class="lh-lg">Вышеуказанные правила схожи с поведением ИЛИ. Разница в том, что И возвращает первое ложное значение, а ИЛИ –  первое истинное.</p>
+                            <p class="lh-lg">Примеры:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            // Если первый операнд истинный,
+                                            <br/>
+                                            // И возвращает второй:
+                                            <br/>
+                                            alert( 1 && 0 ); // 0
+                                            <br/>
+                                            alert( 1 && 5 ); // 5
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <br/>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            // Если первый операнд ложный,
+                                            <br/>
+                                            // И возвращает его. Второй операнд игнорируется
+                                            <br/>
+                                            alert( null && 5 ); // null
+                                            <br/>
+                                            alert( 0 && "какая-то строка" ); // 0
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Можно передать несколько значений подряд. В таком случае возвратится первое «ложное» значение, на котором остановились вычисления.</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert( 1 && 2 && null && 3 ); // null
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Когда все значения верны, возвращается последнее</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            alert( 1 && 2 && 3 ); // 3
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg"><span1><i>Приоритет оператора && больше, чем у ||.</i></span1></p>
+                        <p class="fs-5 fw-bold">! (НЕ) </p>
+                            <p class="lh-lg">Оператор НЕ представлен восклицательным знаком:</p>
+
+                                <div class="case">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            result = !value;
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">Оператор принимает один аргумент и выполняет следующие действия:</p>
+
+                                <ol class="lh-base">
+                                    <li>Сначала приводит аргумент к логическому типу true/false.</li>
+                                    <li>Затем возвращает противоположное значение.</li>
+                                </ol>
+                            
+                            <p class="lh-lg">Например:</p>
+
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( !true ); // false
+                                            <br/>
+                                            console.log( !0 ); // true
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">В частности, двойное НЕ !! используют для преобразования значений к логическому типу:</p>
+                                
+                                <div class="code">
+                                    <div class="text lh-lg">
+                                    <code class="lang-js">
+                                        <span>
+                                            console.log( !!"непустая строка" ); // true
+                                            <br/>
+                                            console.log( !!null ); // false
+                                        </span>
+                                    </code>
+                                    </div>  
+                                </div>
+
+                            <p class="lh-lg">То есть первое НЕ преобразует значение в логическое значение и возвращает обратное, а второе НЕ снова инвертирует его. В конце мы имеем простое преобразование значения в логическое.</p>
+                            <p class="lh-lg"><span1><i>Приоритет НЕ ! является наивысшим из всех логических операторов, поэтому он всегда выполняется первым, перед && или ||.</i></span1></p>
+                    <p class="fs-4 fw-bold">Случайность</p>
+                    <p class="lh-lg">В программном обеспечении, да и в технике в целом существует необходимость в воспроизводимой случайности: числа и картинки, которые кажутся случайными, на самом деле сгенерированы определённым алгоритмом. Это называется псевдослучайностью. Генерация случайных чисел имеет множество приложений в области информатики и особенно важна для криптографии.</p>
+                    <p class="lh-lg">Определение того, что именно является случайностью, может быть довольно сложной задачей. Существуют тесты (например, колмогоровская сложность), которые могут дать вам точное значение того, насколько случайна та или иная последовательность.</p>
+                    <p class="lh-lg">Часто требуется не просто одно число, а несколько случайных чисел, генерируемых непрерывно. Следовательно, учитывая начальное значение, нам нужно создать другие случайные числа. Это начальное значение называется семенем (от англ. Seed). Один из наиболее популярных подходов заключается в том, чтобы применить какую-то сложную математическую формулу к семени, а затем исказить её настолько, что число на выходе будет казаться непредсказуемым, а после взять его как семя для следующей итерации. Вопрос только в том, как должна выглядеть эта функция искажения.</p>
+                    <p class="lh-lg">Функция искажения будет принимать одно значение, а возвращать другое. Назовём её rnd().</p>
+
+                        <div class="case">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Rnd(Input) -> Output
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Начнём с того, что rnd() – это простая функция, которая всего лишь прибавляет единицу.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Rnd(x) = x + 1
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Если значение нашего семени 1, то rnd() создаст ряд 1, 2, 3, 4… Выглядит совсем не случайно, но мы дойдём до этого. Пусть теперь rnd() добавляет константу вместо 1.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Rnd(x) = x + c
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Если с равняется, например, 7, то мы получим ряд 1, 8, 15, 22… Всё ещё не то. Очевидно, что мы упускаем то, что числа не должны только увеличиваться, они должны быть разбросаны по какому-то диапазону. Нам нужно, чтобы наша последовательность возвращалась в начало – круг из чисел!</p>
+                    <p class="lh-lg">Посмотрим на циферблат часов: наш ряд начинается с 1 и идёт по кругу до 12. Но поскольку мы работаем с компьютером, пусть вместо 12 будет 0.</p>
+
+                        <img src = "clock.png ">
+
+                    <p class="lh-lg">Теперь начиная с 1 снова будем прибавлять 7. Прогресс! Мы видим, что после 12 наш ряд начинает повторяться, независимо от того, с какого числа начать. Здесь мы получаем очень важно свойство: если наш цикл состоит из n элементов, то максимальное число элементов, которые мы можем получить перед тем, как они начнут повторяться это n.</p>
+                    <p class="lh-lg">Теперь давайте переделаем функцию rnd() так, чтобы она соответствовала нашей логике. Ограничить длину цикла можно с помощью оператора модуля или оператора остатка от деления.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Rnd(x) = (x + c) % m
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">На этом этапе вы можете заметить, что некоторые числа не подходят для c. Если c = 4, и мы начали с 1, наша последовательность была бы 1, 5, 9, 1, 5, 9, 1, 5, 9… что нам конечно же не подходит, потому что эта последовательность абсолютно не случайная. Становится понятно, что числа, которые мы выбираем для длины цикла и длины прыжка должны быть связаны особым образом.</p>
+                    <p class="lh-lg">Если вы попробуете несколько разных значений, то сможете увидеть одно свойство: m и с должны быть взаимно простыми.</p>
+                    <p class="lh-lg">До сих пор мы делали «прыжки» за счёт добавления, но что если использовать умножение? Умножим х на константу a.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Rnd(x) = (ax + c) % m
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Свойства, которым должно подчиняться а, чтобы образовался полный цикл, немного более специфичны. Чтобы создать верный цикл:</p>
+
+                        <ul class="lh-base">
+                            <li>(а – 1) должно делиться на все простые множители m.</li>
+                            <li>(а – 1) должно делиться на 4, если m делится на 4.</li>
+                        </ul>
+
+                    <p class="lh-lg">Эти свойства вместе с правилом, что m и с должны быть взаимно простыми составляют теорему Халла-Добелла. Мы не будем рассматривать её доказательство, но если бы вы взяли кучу разных значений для разных констант, то могли бы прийти к тому же выводу.</p>
+                    <p class="lh-lg">Настало время поговорить о самом интересном: выборе первоначального семени. Мы могли бы сделать его константой. Это может пригодиться в тех случаях, когда вам нужны случайные числа, но при этом нужно, чтобы при каждом запуске программы они были одинаковые. Например, создание одинаковой карты для каждой игры.</p>
+                    <p class="lh-lg">Еще один способ – это получать семя из нового источника каждый раз при запуске программы, как в системных часах. Это пригодится в случае, когда нужно общее случайное число, как в программе с бросанием кубика.</p>
+                    <p class="lh-lg">Когда мы применяем функцию к её результату несколько раз, мы получаем рекуррентное соотношение. Давайте запишем нашу формулу с использованием рекурсии:</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    X(n) = (a * x(n – 1) + c) % m
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Где начальное значение х – это семя, а – множитель, с – константа, m – оператор остатка от деления.</p>
+                    <p class="lh-lg">То, что мы сделали, называется линейным конгруэнтным методом. Он очень часто используется, потому что он прост в реализации и вычисления выполняются быстро. В разных языках программирования реализация линейного конгруэнтного метода отличается, то есть меняются значения констант. Существуют и другие алгоритмы генерации случайных чисел, но линейный конгруэнтный метод считается классическим и лёгким для понимания.</p>
+                    <p class="lh-lg">В JavaScript встроен объект Math, который содержит различные математические функции и константы. И функция для генерации псевдослучайных чисел в нем уже реализована посредством Math.random(), которая в качестве семени использует значение таймштампа с точностью до миллисекунды на момент вызова. При вызове Math.random() возвращает псевдослучайное число в диапазоне от 0 (включительно) до 1 (но не включая 1!).</p>
+                    <p class="lh-lg">Пример:</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Console.log( Math.random() ); // 0.1234567894322
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">В виде функции можно вызвать например так:</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Function getRandom() {
+                                    <br/>
+                                    Return Math.random();
+                                    <br/>
+                                    }
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">Следующий пример возвращает случайное число в заданном интервале. Возвращаемое значение не менее (и может быть равно) min и не более (и не равно) max.</p>
+                    
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Function getRandomArbitrary(min, max) {
+                                    <br/>
+                                    Return Math.random() * (max – min) + min;
+                                    <br/>
+                                    }
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                    <p class="lh-lg">А вот этот пример возвращает случайное целое число в заданном интервале. Возвращаемое значение не менее min (или следующее целое число, которое больше min, если min не целое) и не более (но не равно) max.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Function getRandomInt(min, max) {
+                                    <br/>
+                                    Min = Math.ceil(min);
+                                    <br/>
+                                    Max = Math.floor(max);
+                                    <br/>
+                                    Return Math.floor(Math.random() * (max – min)) + min; 
+                                    <br/>
+                                    //Максимум не включается, минимум включается
+                                    <br/>
+                                    }
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+                    
+                    <p class="lh-lg">Функция getRandomInt() выше включает минимальное значение, но не включает максимальное. Но что если вам нужно, чтобы включалось и минимальное, и максимальное значение? Функция getRandomIntInclusive() решает этот вопрос.</p>
+
+                        <div class="code">
+                            <div class="text lh-lg">
+                            <code class="lang-js">
+                                <span>
+                                    Function getRandomIntInclusive(min, max) {
+                                    <br/>
+                                    Min = Math.ceil(min);
+                                    <br/>
+                                    Max = Math.floor(max);
+                                    <br/>
+                                    Return Math.floor(Math.random() * (max – min + 1)) + min; 
+                                    <br/>
+                                    //Максимум и минимум включаются
+                                    <br/>
+                                    }
+                                </span>
+                            </code>
+                            </div>  
+                        </div>
+
+                </div>          
+                <div class="otstup col-1"></div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

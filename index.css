@@ -15,3 +15,22 @@ body {
   ul li:before {
     content: "• ";
   } */
+.code{
+    border: solid 1px #3c3c3c;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.case{
+  /* border: solid 1px #3c3c3c; */
+  /* border-radius: 5px; */
+  margin-bottom: 20px;
+}
+span{
+  color: rgb(186, 35, 136);
+}
+span1{
+  color: #621585;
+}
+.text{
+  padding: 2%;
+}
