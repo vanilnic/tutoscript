@@ -3,20 +3,28 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #E6E6E6;
     color: #000000;
+    
 }
-
+.container-fluid{
+  overflow-y:hidden;
+}
 .header{
-  height: 100px;
-  background: rgb(167, 167, 216);
-  /* margin-bottom: 50px; */
+    min-height: 14vh;
+    /* min-height: 100px; */
+    background: #c2c2c2;
 }
-.search{
+/* .search{
   border: solid 1px #3c3c3c;
-}
+  top: 50%;
 
-.theme{
+} */
+/* .search_input{
+  align-items: center;
+} */
+/* .theme{
   border: solid 1px #3c3c3c;
-}
+  
+} */
 .base{
   min-height: 85vh
 }
