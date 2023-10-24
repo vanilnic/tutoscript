@@ -2,11 +2,30 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background: #E6E6E6;
+    color: #000000;
 }
+
 .header{
-    height: 100px;
-    background: rgb(167, 167, 216);
-    /* margin-bottom: 50px; */
+  height: 100px;
+  background: rgb(167, 167, 216);
+  /* margin-bottom: 50px; */
+}
+.search{
+  border: solid 1px #3c3c3c;
+}
+
+.theme{
+  border: solid 1px #3c3c3c;
+}
+.base{
+  min-height: 85vh
+}
+.menu{
+  border: solid 1px #3c3c3c;
+}
+
+.article{
+  border: solid 1px #3c3c3c;
 }
 /* ul li {
     display: list-item;
