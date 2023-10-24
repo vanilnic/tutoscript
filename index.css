@@ -9,7 +9,7 @@ body {
   overflow-y:hidden;
 }
 .header{
-    min-height: 14vh;
+    min-height: 15vh;
     /* min-height: 100px; */
     background: #c2c2c2;
 }
@@ -28,13 +28,13 @@ body {
 .base{
   min-height: 85vh
 }
-.menu{
+/* .menu{
   border: solid 1px #3c3c3c;
-}
+} */
 
-.article{
+/* .article{
   border: solid 1px #3c3c3c;
-}
+} */
 /* ul li {
     display: list-item;
   }
