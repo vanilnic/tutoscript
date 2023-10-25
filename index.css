@@ -3,53 +3,31 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #E6E6E6;
     color: #000000;
-    
 }
 .container-fluid{
   overflow-y:hidden;
 }
 .header{
-    min-height: 15vh;
-    /* min-height: 100px; */
+    min-height: 12vh;
+    min-width: 100vh;
     background: #c2c2c2;
 }
-/* .search{
-  border: solid 1px #3c3c3c;
-  top: 50%;
-
-} */
-/* .search_input{
+.search{
+  border: solid 1px black;
+}
+/* .searchh{
   align-items: center;
 } */
-/* .theme{
-  border: solid 1px #3c3c3c;
-  
-} */
 .base{
-  min-height: 85vh
+  min-height: 88vh;
+  min-width: 100vh;
 }
-/* .menu{
-  border: solid 1px #3c3c3c;
-} */
-
-/* .article{
-  border: solid 1px #3c3c3c;
-} */
-/* ul li {
-    display: list-item;
-  }
-  
-  ul li:before {
-    content: "• ";
-  } */
 .code{
     border: solid 1px #3c3c3c;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 .case{
-  /* border: solid 1px #3c3c3c; */
-  /* border-radius: 5px; */
   margin-bottom: 20px;
 }
 span{
@@ -61,3 +39,34 @@ span1{
 .text{
   padding: 2%;
 }
+
+.nav-link{
+  color: rgb(0, 0, 0);
+  text-decoration: none; 
+  transition: .5s;
+}
+.nav-link:hover{
+  text-decoration: wavy;
+  color: aqua!important;
+}
+.ss{
+  padding-left: 10px;
+}
+
+.qq{
+  font-size: 18px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* ширина scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+  background: white; /* цвет дорожки */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+  background-color: aqua; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 2px solid white; /*padding вокруг плашки*/
+  }
