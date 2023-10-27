@@ -53,7 +53,7 @@ span1{
 }
 
 .nav-link{
-    color: #E6E6E6;
+  color: #E6E6E6!important;
   text-decoration: none; 
   transition: .5s;
 }
