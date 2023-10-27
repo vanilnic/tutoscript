@@ -4,27 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" id="stylesheet" href="index.css">
+    <link rel="import" href="menu.html">
     <!-- <link rel="stylesheet" href="script.js"> -->
     </head>
-    <title>main str</title>
+    <title>tutoScript - основы языка JavaScript</title>
 
 <body>
     <main>
         <div class="container-fluid">
             <div class="header row p-0 align-items-center">
-                <div class="otstup col-6"></div>
-                    <div class="search col-5 row p-0">
-                                <div class="searchh md-form active-pink active-pink-2 col-10 p-0">
-                                    <input class="form-control" type="text" placeholder="Поиск" aria-label="Search" maxlength="40">
-                                </div>
+                <div class="otstup col-6">
+                    <div class="title ps-3">
+                        <label for="">t u t o  S c r i p t</label>
+                    </div>
+                </div>
+                    <div class="search col-4 row p-0">
+                                <!-- <div class="searchh md-form active-pink active-pink-2 col-10 p-0">
+                                    <input class="input form-control" type="text" placeholder="Поиск" aria-label="Search" maxlength="40">
+                                </div> -->
                         <div class="otstup col-2"></div>
                     </div>
-                            <div class="theme col-1">
-                                <div class="theme_button">
-                                    <button class="button ">кнопка</button>
-                                </div>               
-                            </div>
+                        <div class="theme_l col-1">
+                            <a class="nav-link" onclick="setStyleSheet('index.css')" href="#">День</a>
+                        </div>
+                        <div class="theme_d col-1">
+                            <a class="nav-link" onclick="setStyleSheet('index_dark.css')" href="#">Ночь</a>
+                        </div>
             </div>
 
   
@@ -34,7 +40,7 @@
                 </div>
                 <!-- Перове - iframe может помещаться внутрь тега body -->
                 <!-- Второе - тег iframe можно гибко кастомизировать, задавая ему размер и внешний вид -->
-                <div class="article col-9">
+                <div class="article col-9 p-0">
                     <iframe name="fr" src="gl1_intro.html" height="100%", width="100%"></iframe>
                 </div>
             </div>
